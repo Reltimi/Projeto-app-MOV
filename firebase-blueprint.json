@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "Registration": {
+      "title": "Registration",
+      "description": "User registration for buyers and sellers",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the registrant"
+        },
+        "email": {
+          "type": "string",
+          "description": "E-mail address of the registrant"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["buyer", "seller"],
+          "description": "Role of the registrant"
+        },
+        "farmName": {
+          "type": "string",
+          "description": "Optional name of the farm if registrant is a seller"
+        },
+        "taxId": {
+          "type": "string",
+          "description": "Optional tax ID (CNPJ/CPF) if registrant is a seller"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when the registration was created"
+        }
+      },
+      "required": ["fullName", "email", "role", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/registrations/{registrationId}": {
+      "schema": "Registration",
+      "description": "Registrations submitted by buyers and producers"
+    }
+  }
+}

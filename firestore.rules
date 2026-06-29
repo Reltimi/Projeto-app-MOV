@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper to validate registration ID length and pattern
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    // Helper to validate Registration fields
+    function isValidRegistration(data) {
+      return data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 200
+        && data.email is string && data.email.size() > 0 && data.email.size() <= 256
+        && data.role is string && (data.role == 'buyer' || data.role == 'seller')
+        && data.createdAt is string
+        && (!('farmName' in data) || (data.farmName is string && data.farmName.size() <= 200))
+        && (!('taxId' in data) || (data.taxId is string && data.taxId.size() <= 100));
+    }
+
+    match /registrations/{registrationId} {
+      allow create: if isValidId(registrationId) && isValidRegistration(request.resource.data);
+      allow get, delete: if isValidId(registrationId);
+      allow list: if true;
+      allow update: if isValidId(registrationId) && isValidRegistration(request.resource.data);
+    }
+  }
+}

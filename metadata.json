@@ -1,0 +1,6 @@
+{
+  "name": "MOV - Mercado de Orgânicos e Veganos",
+  "description": "Plataforma e-commerce que conecta produtores locais de alimentos orgânicos e veganos a consumidores conscientes. Inclui loja com busca/filtros, checkout seguro e portal de gestão do produtor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #154212;
+  --color-primary-container: #2d5a27;
+  --color-on-primary-container: #9dd090;
+  --color-secondary: #99462a;
+  --color-secondary-container: #fe9572;
+  --color-on-secondary-container: #762c12;
+  --color-background: #fcf9f8;
+  --color-surface: #fcf9f8;
+  --color-on-surface: #1b1b1c;
+  --color-on-surface-variant: #42493e;
+  --color-outline: #72796e;
+  --color-outline-variant: #c2c9bb;
+  --color-surface-container: #f0eded;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e5e2e1;
+  
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-label: "Work Sans", sans-serif;
+}
+
+/* Material symbols global style helpers */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom interactive animations */
+.squishy {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.squishy:active {
+  transform: scale(0.96);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c2c9bb;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #72796e;
+}
